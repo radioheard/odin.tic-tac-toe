@@ -1,0 +1,31 @@
+
+html, body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+#gameboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: rgb(158, 84, 0);
+    padding: 25px;
+    height: 70vh;
+    width: 70vh;
+    border-radius: 10px;
+}
+
+.spc {
+    background-color: rgb(247, 204, 64);
+    border: solid 1px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: monospace;
+    font-size: 100px;
+}
+
+.spc:hover {
+    background-color: rgb(247, 221, 138);
+}

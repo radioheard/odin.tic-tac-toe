@@ -1,28 +1,26 @@
 const gameBoard = (() => {
 
-    const space1 = 'x';
-    const space2 = 'x';
-    const space3 = 'x';
-    const space4 = 'o';
-    const space5 = 'o';
-    const space6 = 'x';
-    const space7 = 'o';
-    const space8 = 'x';
-    const space9 = 'o';
+    let board = ['x','x','x','o','o','x','o','x','o']
 
     return {
-        space1,
-        space2,
-        space3,
-        space4,
-        space5,
-        space6,
-        space7,
-        space8,
-        space9,
+        board,
     };
 })();
 
 const playerFactory = (name, ficha) => {
     return {name, ficha};
 };
+
+function boardRender () {
+    let board = document.getElementById('gameboard')
+    gameBoard.board.forEach( function(mark, i) {
+        let div = document.createElement('div');
+        let content = document.createTextNode(mark);
+        div.appendChild(content);
+        div.className = 'spc';
+        div.id = `${i}`;
+        board.appendChild(div);
+    });
+}
+
+boardRender();
