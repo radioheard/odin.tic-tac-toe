@@ -1,21 +1,259 @@
 
 html, body {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
     height: 100%;
+    width: 100%;
+    background-color: brown;
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    display:flex;
+    width: 100%;
+    flex:1;
+    padding-top: 10vh;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding-left: 30px;
+    flex: 1;
+    gap: 10px;
+}
+
+.container2 {
+    display: flex;
+    flex-direction: column;
+    padding-right: 3vw;
+    align-items: center;
+    gap: 25px;
+}
+
+.container2 > button {
+    width: 10vw;
+    height: 8vh;
+    font-size: 4vh;
+    font-family: monospace;
+    background-color: rgb(49, 49, 49);
+    color: white;
+    border-radius: 5px;
+}
+
+#screen {
+    width: 25vw;
+    height: 35vh;
+    border: solid 8px rgb(63, 63, 63);
+    background-color: rgb(163, 241, 231);
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 7vh;
+    font-family: monospace;
+    text-align: center;
+}
+
+.box {
+	width: 350px;
+    height: 350px;
+	padding: 15px;
+	position: absolute;
+	overflow: hidden;
+    top: 17%;
+    z-index: 1;
+    display: flex;
+    visibility: hidden;
+}
+
+.box::before {
+	content: '';
+	position: absolute;
+	width: 150%;
+	height: 150%;
+	background: repeating-linear-gradient(
+			white 0%,
+			white 7.5px,
+			hotpink 7.5px,
+			hotpink 15px,
+			white 15px,
+			white 22.5px,
+			hotpink 22.5px,
+			hotpink 30px);
+	transform: translateX(-20%) translateY(-20%) rotate(-45deg);
+	animation: animate 20s linear infinite;
+}
+
+.box > p {
+    display: flex;
+	background-color: white;
+	flex-direction: column;
+	box-sizing: border-box;
+	text-align: center;
+    justify-content: center;
+	font-family: monospace;
+    font-size: 50px;
+	z-index: 2;
+    border: solid 1px black;
+    margin: 0;
+    flex: 1;
+}
+
+p > button {
+    position: absolute;
+    top: 85%;
+    left: 32%;
+    border: none;
+    background-color: white;
+    font-family: monospace;
+    font-size: 24px;
+    border-radius: 15px;
+}
+
+p > button:hover {
+    background-color: rgb(212, 186, 236);
+}
+p > button:active{
+    background-color: rgb(181, 127, 231);
+} 
+
+.box,
+.box .content {
+	box-shadow: 0 0 2px deeppink,
+				0 0 5px rgba(0, 0, 0, 1),
+				inset 0 0 5px rgba(0, 0, 0, 1);
+	border-radius: 10px;
+}
+
+
+
+@keyframes animate {
+	from {
+		background-position: 0;
+	}
+
+	to {
+		background-position: 0 450px;
+	}
+}
+
+
+.playerboard {
+    border: 1.5px solid black;
+    border-radius: 5px;
+    background-color: rgb(223, 169, 53);
+    padding: 10px;
+    padding-top: 3px;
+    height: 30vh;
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+}
+.playerboard > div {
+    text-align: center;
+    font-size: 24px;
+}
+
+.playerboard > ul {
+    background-color: rgb(18, 66, 4);
+    color: white;
+    margin: 0;
+    margin-top: 5px;
+    padding: 0;
+    list-style: none;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: monospace;
+    flex:1;
+}
+
+li {
+    margin: 15px
+}
+
+#clear {
+    font-family: monospace;
+    color: white;
+    background-color: rgb(49, 49, 49);
+    border-radius: 5px;
+    float: right;
+    position: relative;
+    box-shadow: 6px 3px 47px -3px rgb(255, 255, 255);
+    align-self: flex-end;
+    bottom: 14%;
+    right: 5%;
+    margin-bottom: -10px;
+}
+
+form {
+    background-color: rgb(223, 169, 53);
+    width: 15vw;
+    height: 12vh;
+    text-align: center;
+    border: 1.5px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    margin-left: 6vh;
+    gap: 5px;
+    visibility: hidden;
+}
+
+
+input{
+    background-color: rgb(18, 66, 4);
+    min-height: 4vh;
+    border: none;
+    color: white;
+    font-family: monospace;
+}
+
+input:focus {
+    border: none;
+}
+
+#add,
+form > button {
+    background-color: rgb(223, 169, 53);
+    font-size: 20px;
+    border-radius: 50px;
+    border: none;
+    font-weight: bolder;
+}
+
+form > button {
+    align-self: center;
+    font-size: 15px;
+}
+
+#add:hover,
+form > button:hover{
+    background-color: rgb(226, 115, 24);
 }
 
 #gameboard {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     background-color: rgb(158, 84, 0);
     padding: 25px;
-    height: 70vh;
-    width: 70vh;
+    height: 65vh;
+    width: 65vh;
     border-radius: 10px;
+    position: absolute  ;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto; 
 }
-
 .spc {
     background-color: rgb(247, 204, 64);
     border: solid 1px black;
@@ -28,4 +266,35 @@ html, body {
 
 .spc:hover {
     background-color: rgb(247, 221, 138);
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 13vh;
+}
+
+.title {
+    font-size: 8vh;
+    font-family: monospace;
+    background-color: white;
+    width: 40vw;
+    text-align: center;
+    border: 3px solid blue;
+    border-radius: 40px;
+    height: 10vh;
+}
+
+.footer {
+    background-color: rgb(43, 43, 43);
+    color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 8vh;
+    justify-self: flex-end;
+    margin-top: auto;
 }
